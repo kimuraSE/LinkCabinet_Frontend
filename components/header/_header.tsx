@@ -9,7 +9,7 @@ const Header = () => {
         </div>
         <div>
           <Link href="/signup" className="text-white hover:text-gray-400 mr-4">
-            Sign Up
+            SignUp
           </Link>
           <Link href="/login" className="text-white hover:text-gray-400">
             Login

@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { useErrors } from "./useErrors"
 import { useMutation } from "react-query"
 import axios from "axios"
+import { loginCredential,registerCredential } from "@/types"
 
 
 export const useMutateAuth = () => {
@@ -10,7 +11,7 @@ export const useMutateAuth = () => {
     const resetEditedLink = useStore((state) => state.resetEditedLink)
     const { switchErrorHandling } = useErrors()
     const loginMutation = useMutation(
-        async (user: Credential) => 
+        async (user: loginCredential) => 
             await axios.post("http://localhost:8080/login", user),
             {
                 onSuccess: () => {
@@ -27,11 +28,11 @@ export const useMutateAuth = () => {
     )
 
     const registerMutation = useMutation(
-        async (user: Credential) => 
+        async (user: registerCredential) => 
             await axios.post("http://localhost:8080/signup", user),
             {
                 onSuccess: () => {
-                    router.push("/")
+                    router.push("/home")
                 },
                 onError: (error: any) => {
                 if(error.response.data.message){
