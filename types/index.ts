@@ -1,5 +1,5 @@
 
-export type Links = {
+export type LinkType = {
     id : number;
     title : string;
     url : string;

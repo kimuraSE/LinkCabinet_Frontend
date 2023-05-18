@@ -2,6 +2,7 @@ import axios from "axios";
 import useStore from "@/store";
 import { useRouter } from "next/router";
 import { CsrfToken } from "@/types";
+import Swal from 'sweetalert2'
 
 export const useErrors = () => {
     const router = useRouter()
@@ -31,12 +32,41 @@ export const useErrors = () => {
               case 'duplicated key not allowed':
                 alert('email already exist, please use another one')
                 break
+              case 'ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)':
+                Swal.fire({
+                  icon: 'error',
+                  title: 'おっと...',
+                  text: 'そのメールアドレスが既に登録されています',
+                })
+              break
               case 'crypto/bcrypt: hashedPassword is not the hash of the given password':
-                alert('password is not correct')
+                Swal.fire(
+                  'パスワードが見つかりません?',
+                  'もう一度入力してください',
+                  'question'
+                )
                 break
+                case 'password: password is required.':
+                  Swal.fire(
+                    'パスワードを入力してください',
+                    'もう一度入力してください',
+                    'question'
+                  )
+                  break
               case 'record not found':
-                alert('email is not correct')
+                Swal.fire(
+                  'メールアドレスが見つかりません?',
+                  'もう一度入力してください',
+                  'question'
+                )
                 break
+                case 'email: email is required.':
+                  Swal.fire(
+                    'メールアドレスを入力してください',
+                    'もう一度入力してください',
+                    'question'
+                  )
+                  break
               default:
                 alert(message)
         }
