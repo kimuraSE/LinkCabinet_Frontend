@@ -5,7 +5,7 @@ const Header = () => {
       <header className="bg-blue-500 text-white py-4 px-8 flex flex-col sm:flex-row justify-between items-center">
         <div className="flex items-center mb-2 sm:mb-0">
           {/* <img src="/logo.png" alt="LinkCabinet Logo" className="h-8 w-8 mr-2" /> */}
-          <h1 className="text-xl font-bold">LinkCabinet</h1>
+          <h1 className="text-xl font-bold"><Link href={"/"}>LinkCabinet</Link></h1>
         </div>
         <div>
           <Link href="/signup" className="text-white hover:text-gray-400 mr-4">
