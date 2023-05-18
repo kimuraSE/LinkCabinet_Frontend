@@ -5,6 +5,9 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import { CsrfToken } from '@/types'
 
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -20,5 +23,9 @@ export default function App({ Component, pageProps }: AppProps) {
     getCsrfToken()
   },[])
 
-  return <Component {...pageProps} />
+  return (
+  <QueryClientProvider client={queryClient}>
+  <Component {...pageProps} />
+  </QueryClientProvider>
+  )
 }
