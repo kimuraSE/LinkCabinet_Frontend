@@ -4,6 +4,9 @@ import { useState } from "react";
 
 const SettingsPage = () => {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -53,7 +56,7 @@ const SettingsPage = () => {
                 type="email"
                 id="email"
                 className="border border-gray-300 rounded px-4 py-2 w-full"
-                value={name}
+                value={email}
                 onChange={handleChange}
               />
             </div>
@@ -73,10 +76,10 @@ const SettingsPage = () => {
                 Password
               </label>
               <input
-                type="password"
+                type="text"
                 id="password"
                 className="border border-gray-300 rounded px-4 py-2 w-full"
-                value={name}
+                value={password}
                 onChange={handleChange}
               />
             </div>

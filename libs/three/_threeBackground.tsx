@@ -77,5 +77,5 @@ export default function ThreeBackground() {
     };
   }, []);
 
-  return <div ref={containerRef} className="absolute -z-10" />;
+  return <div ref={containerRef} className="absolute -z-10"  />;
 }
